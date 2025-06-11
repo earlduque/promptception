@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>promptception_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Promptception List</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>earl.duque</sys_created_by>
+        <sys_created_on>2025-06-11 18:06:33</sys_created_on>
+        <sys_id>93135d8a2bce66102626f6d14291bfaa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Promptception List</sys_name>
+        <sys_package display_value="EHD Promptception" source="x_snc_ehd_promptce">190159022bce66102626f6d14291bfeb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="EHD Promptception">190159022bce66102626f6d14291bfeb</sys_scope>
+        <sys_update_name>sp_widget_93135d8a2bce66102626f6d14291bfaa</sys_update_name>
+        <sys_updated_by>earl.duque</sys_updated_by>
+        <sys_updated_on>2025-06-11 18:06:33</sys_updated_on>
+        <template><![CDATA[<div><!-- your widget template --></div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>93135d8a2bce66102626f6d14291bfaa</id>
+        <sys_created_by>earl.duque</sys_created_by>
+        <sys_created_on>2025-06-11 18:06:33</sys_created_on>
+        <sys_id>5f135d8a2bce66102626f6d14291bfac</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>earl.duque</sys_updated_by>
+        <sys_updated_on>2025-06-11 18:06:33</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

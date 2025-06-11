@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">db135d8a2bce66102626f6d14291bfb4</sp_column>
+        <sp_widget display_value="Promptception List">93135d8a2bce66102626f6d14291bfaa</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>earl.duque</sys_created_by>
+        <sys_created_on>2025-06-11 18:06:33</sys_created_on>
+        <sys_id>9b135d8a2bce66102626f6d14291bfc3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="EHD Promptception" source="x_snc_ehd_promptce">190159022bce66102626f6d14291bfeb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="EHD Promptception">190159022bce66102626f6d14291bfeb</sys_scope>
+        <sys_update_name>sp_instance_9b135d8a2bce66102626f6d14291bfc3</sys_update_name>
+        <sys_updated_by>earl.duque</sys_updated_by>
+        <sys_updated_on>2025-06-11 18:06:33</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=9b135d8a2bce66102626f6d14291bfc3"/>
+</record_update>
