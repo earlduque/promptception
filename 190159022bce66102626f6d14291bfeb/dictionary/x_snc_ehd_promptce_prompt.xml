@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element db_object_id="b3a1114a2bce66102626f6d14291bfdb" label="Prompt" max_length="40" name="x_snc_ehd_promptce_prompt" type="collection">
         <element choice="1" default="new" label="State" max_length="40" name="state" type="choice">
-            <choice/>
+            <choice>
+                <element inactive_on_update="false" label="Complete" sequence="300" value="complete"/>
+                <element inactive_on_update="false" label="In progress" sequence="200" value="in progress"/>
+                <element inactive_on_update="false" label="New" sequence="100" value="new"/>
+            </choice>
         </element>
         <element label="Expanded prompt" max_length="4000" name="expanded_prompt" type="string"/>
+        <element default="true" hint="Toggle to control portal visibility" label="Display on portal" max_length="40" name="display_on_portal" type="boolean"/>
         <element label="User inputter" max_length="256" name="user_input" type="string"/>
         <element label="Submitter" max_length="32" name="submitter" reference="sys_user" type="reference"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
