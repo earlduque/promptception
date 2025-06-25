@@ -12,7 +12,7 @@
   };
 };]]></client_script>
         <controller_as>c</controller_as>
-        <css><![CDATA[.prompt-list {
+        <css>.prompt-list {
   margin: 20px 0;
 }
 
@@ -38,7 +38,7 @@
   margin-top: 10px;
   font-size: 0.9em;
   color: #7f8c8d;
-}]]></css>
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
