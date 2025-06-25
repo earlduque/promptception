@@ -1,9 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <client_script><![CDATA[api.controller=function() {
+  var c = this;
+  c.inputValue = '';
+  c.submitterDisplay = c.data.submitterDisplay;
+  c.isSubmitting = false;
+  c.error = '';
+
+  c.submit = function() {
+    c.isSubmitting = true;
+    c.error = '';
+    var req = {
+      user_input: c.inputValue
+    };
+    c.server.createPrompt(req).then(function(response) {
+      if (response && response.success) {
+        window.location.href = '/sp?id=promptception_list';
+      } else {
+        c.error = response.error || 'Submission failed.';
+      }
+      c.isSubmitting = false;
+    });
+  };
+};]]></client_script>
         <controller_as>c</controller_as>
-        <css/>
+        <css><![CDATA[.prompt-input-form {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+}
+.prompt-input-form label {
+  font-weight: bold;
+}
+.prompt-input-form .form-group {
+  margin-bottom: 15px;
+}
+.prompt-input-form .readonly-field {
+  background: #f5f5f5;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.prompt-input-form .btn {
+  min-width: 120px;
+}
+.prompt-input-form .error {
+  color: #c0392b;
+  margin-top: 10px;
+}
+]]></css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -17,13 +66,30 @@
         <option_schema/>
         <public>false</public>
         <roles/>
-        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <script><![CDATA[(function() {
+  // Get the logged-in user's display name and sys_id
+  var user = gs.getUser();
+  data.submitterDisplay = user.getDisplayName();
+  data.submitterSysId = user.getID();
+
+  // Provide a server method to create a prompt
+  api.createPrompt = function(req) {
+    var gr = new GlideRecord('x_snc_ehd_promptce_prompt');
+    gr.initialize();
+    gr.user_input = req.user_input;
+    gr.submitter = data.submitterSysId;
+    gr.display_on_portal = true;
+    gr.state = 'new';
+    gr.insert();
+    return {success: true};
+  };
+})();]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>earl.duque</sys_created_by>
         <sys_created_on>2025-06-11 18:06:14</sys_created_on>
         <sys_id>b603598a2bce66102626f6d14291bf90</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>Promptception Input</sys_name>
         <sys_package display_value="EHD Promptception" source="x_snc_ehd_promptce">190159022bce66102626f6d14291bfeb</sys_package>
         <sys_policy/>
@@ -31,7 +97,22 @@
         <sys_update_name>sp_widget_b603598a2bce66102626f6d14291bf90</sys_update_name>
         <sys_updated_by>earl.duque</sys_updated_by>
         <sys_updated_on>2025-06-11 18:06:14</sys_updated_on>
-        <template><![CDATA[<div><!-- your widget template --></div>]]></template>
+        <template><![CDATA[
+<div class="prompt-input-form">
+  <form ng-submit="c.submit()" name="promptForm" novalidate>
+    <div class="form-group">
+      <label>Submitter</label>
+      <div class="readonly-field">{{c.submitterDisplay}}</div>
+    </div>
+    <div class="form-group">
+      <label for="userInput">Your Input</label>
+      <textarea id="userInput" class="form-control" ng-model="c.inputValue" required rows="4" placeholder="Enter your prompt..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" ng-disabled="promptForm.$invalid || c.isSubmitting">Submit</button>
+    <div class="error" ng-if="c.error">{{c.error}}</div>
+  </form>
+</div>
+]]></template>
     </sp_widget>
     <sys_es_latest_script action="INSERT_OR_UPDATE">
         <id>b603598a2bce66102626f6d14291bf90</id>
